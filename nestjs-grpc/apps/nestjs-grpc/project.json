@@ -1,0 +1,52 @@
+{
+  "root": "apps/nestjs-grpc",
+  "sourceRoot": "apps/nestjs-grpc/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/nestjs-grpc",
+        "main": "apps/nestjs-grpc/src/main.ts",
+        "tsConfig": "apps/nestjs-grpc/tsconfig.app.json",
+        "assets": ["apps/nestjs-grpc/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/nestjs-grpc/src/environments/environment.ts",
+              "with": "apps/nestjs-grpc/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "nestjs-grpc:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nestjs-grpc/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/nestjs-grpc"],
+      "options": {
+        "jestConfig": "apps/nestjs-grpc/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
