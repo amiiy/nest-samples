@@ -1,5 +1,5 @@
 {
-  "name": "nestjs-grpc",
+  "name": "nestjs-microservice-admin",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -13,9 +13,14 @@
     "@nestjs/core": "^8.0.0",
     "@nestjs/microservices": "^8.4.4",
     "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/typeorm": "^8.0.3",
+    "amqp-connection-manager": "^4.1.2",
+    "amqplib": "^0.8.0",
+    "mysql2": "^2.3.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.0.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "typeorm": "^0.2.45"
   },
   "devDependencies": {
     "@nestjs/schematics": "^8.0.0",
